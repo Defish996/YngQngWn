@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define NUM 1024
+
+const char* getUserName()
+{
+  const char* name = getenv("USER");
+  if(name) return name;
+  else return "none";
+}
+const char* getHostName()
+{
+  const char* hostname = getenv("HOSTNAME");
+  if(hostname) return hostname;
+  else return "none";
+}
+
+const char* getCwd()
+{
+  const char* cwd = getenv("PWD");
+  if(cwd) return cwd;
+  else return "none";
+}
+
+int main()
+{
+  char usercommand[NUM];
+  printf("[%s@%s %s]#",getUserName(),getHostName(),getCwd());
+
+  scanf("%s",usercommand);
+  return 0;
+}
