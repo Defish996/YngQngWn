@@ -1,0 +1,4 @@
+fd: 1
+stdout->fd: 1
+hello world
+hello world
