@@ -1,0 +1,33 @@
+total 56
+drwxrwxr-x.  2 wyq wyq   130 Apr 25 17:31 .
+drwx------. 17 wyq wyq  4096 Apr 25 10:41 ..
+-rw-rw-r--.  1 wyq wyq    14 Apr 25 11:42 bite.txt
+-rw-rw-r--.  1 wyq wyq     0 Apr 25 17:31 log.txt
+-rw-rw-r--.  1 wyq wyq    65 Apr 25 11:51 makefile
+-rwxrwxr-x.  1 wyq wyq 13976 Apr 25 17:30 mybash
+-rwxrwxr-x.  1 wyq wyq  8720 Apr 25 11:42 myfile
+-rw-rw-r--.  1 wyq wyq   354 Apr 25 11:42 myfile.c
+-rw-rw-r--.  1 wyq wyq  5215 Apr 25 17:30 myshell.c
+-rw-rw-r--.  1 wyq wyq     7 Apr 25 14:09 test.txt
+total 60
+drwxrwxr-x.  2 wyq wyq   130 Apr 25 17:31 .
+drwx------. 17 wyq wyq  4096 Apr 25 10:41 ..
+-rw-rw-r--.  1 wyq wyq    14 Apr 25 11:42 bite.txt
+-rw-rw-r--.  1 wyq wyq   502 Apr 25 17:31 log.txt
+-rw-rw-r--.  1 wyq wyq    65 Apr 25 11:51 makefile
+-rwxrwxr-x.  1 wyq wyq 13976 Apr 25 17:30 mybash
+-rwxrwxr-x.  1 wyq wyq  8720 Apr 25 11:42 myfile
+-rw-rw-r--.  1 wyq wyq   354 Apr 25 11:42 myfile.c
+-rw-rw-r--.  1 wyq wyq  5215 Apr 25 17:30 myshell.c
+-rw-rw-r--.  1 wyq wyq     7 Apr 25 14:09 test.txt
+total 60
+drwxrwxr-x.  2 wyq wyq   130 Apr 25 17:31 .
+drwx------. 17 wyq wyq  4096 Apr 25 10:41 ..
+-rw-rw-r--.  1 wyq wyq    14 Apr 25 11:42 bite.txt
+-rw-rw-r--.  1 wyq wyq  1004 Apr 25 17:31 log.txt
+-rw-rw-r--.  1 wyq wyq    65 Apr 25 11:51 makefile
+-rwxrwxr-x.  1 wyq wyq 13976 Apr 25 17:30 mybash
+-rwxrwxr-x.  1 wyq wyq  8720 Apr 25 11:42 myfile
+-rw-rw-r--.  1 wyq wyq   354 Apr 25 11:42 myfile.c
+-rw-rw-r--.  1 wyq wyq  5215 Apr 25 17:30 myshell.c
+-rw-rw-r--.  1 wyq wyq     7 Apr 25 14:09 test.txt
