@@ -1,0 +1,4 @@
+write:hello linux
+fprintf:hello linux
+printf:hello linux
+fputs:hello linux
