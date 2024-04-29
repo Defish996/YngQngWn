@@ -1,0 +1,17 @@
+static-lib=libmymath.a#定义变量为static-lib  形成的静态库文件叫做libmymath.a
+
+$(static-lib):Add.o Div.o Mul.o Sub.o#$() 表示使用变量   : 冒号两边是熟悉的$@ $^的意思
+	ar -rc $@ $^
+%.o:%.c
+	gcc -c $<
+.PHONY:output
+output:
+	mkdir -p mymath_lib/include
+	mkdir -p mymath_lib/lib
+	cp -f *.h mymath_lib/include
+	cp -f *.a mymath_lib/lib 
+
+
+.PHONY:clean
+clean:
+	rm -rf *.o *.a mymath_lib  
