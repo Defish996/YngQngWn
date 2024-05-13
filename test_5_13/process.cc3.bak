@@ -1,0 +1,12 @@
+#include <iostream>
+#include <unistd.h>
+#include <signal.h>
+int main()
+{
+    while(1)
+    {
+        std::cout << "Runing...mypid: " << getpid() << std::endl;
+        raise(9);
+    }
+    return 0;
+}

@@ -1,0 +1,24 @@
+#include <iostream>
+#include <unistd.h>
+#include <signal.h>
+#include <sys/types.h>
+void Using(std::string pro)
+{
+    std::cout << "Using:" << pro << " -signalnum proid" << std::endl;
+}
+int main(int argc,char* argv[])
+{
+    //参数传递 ./process -9 1234
+    if(argc != 3)
+    {
+        Using(argv[0]);
+        exit(1);
+    }
+    int signalnum = std::stoi(argv[1]+1);
+    int proid = std::stoi(argv[2]);
+
+    kill(proid,signalnum);
+
+
+    return 0;
+}
