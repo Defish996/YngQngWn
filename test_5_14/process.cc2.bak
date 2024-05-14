@@ -1,0 +1,23 @@
+#include <iostream>
+#include <unistd.h>
+#include <signal.h>
+long long int cnt = 0;
+
+void handler(int signo)
+{
+    int n = alarm(0);
+    std::cout << "get a signo: " << signo << std::endl;
+    std::cout << "剩余秒数:" << n << std::endl;
+    exit(1);
+}
+int main()
+{
+    signal(14,handler);
+    alarm(30);
+    std::cout << "mypid : " << getpid() << std::endl;
+    while(true)
+    {
+        sleep(1);
+    }
+    return 0;
+}

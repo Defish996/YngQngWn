@@ -1,0 +1,21 @@
+#include <iostream>
+#include <unistd.h>
+#include <signal.h>
+void handler(int signo)
+{
+
+    std::cout << "get a signo: " << signo << std::endl;
+    sleep(1);
+    exit(1);
+
+}
+int main()
+{
+    signal(11,handler);
+
+    // int a = 10;
+    // a /= 0;
+    int *p = nullptr;
+    *p = 100;
+    return 0;
+}
