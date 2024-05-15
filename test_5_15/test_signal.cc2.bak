@@ -1,0 +1,39 @@
+#include <iostream>
+#include <signal.h>
+#include <unistd.h>
+void handler(int signo)
+{
+        std::cout << "i am a signal,my signo is :" << signo << std::endl;
+
+}
+int main()
+{
+    std::cout << "mypid: " << getpid() << std::endl;
+
+    signal(2,handler);
+    sigset_t block, oblock;//创建用于信号处理
+    
+    //初始化
+    sigemptyset(&block);
+    sigemptyset(&oblock);
+
+    //添加信号到信号集当中
+    //在语言层面进行变量与信号的关联,此时只是在栈上操作,并没有到OS内
+    for(int signo = 1; signo <= 32; signo++)
+    {
+        sigaddset(&block,signo);
+    }
+
+    //语言与OS关联
+    sigprocmask(SIG_BLOCK,&block,&oblock);
+    while(1)
+    {
+        std::cout << "我已经屏蔽了所有的信号" << std::endl;
+        sleep(1);
+    }
+
+
+
+
+    return 0;
+}

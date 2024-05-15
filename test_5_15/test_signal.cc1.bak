@@ -1,0 +1,41 @@
+#include <iostream>
+#include <unistd.h>
+#include <signal.h>
+void handler(int signo)
+{
+    std::cout << "i am accept a signo:" << signo << std::endl;
+
+}
+int main()
+{
+    signal(2,handler);
+
+    std::cout << "mypid: " << getpid() << std::endl;
+    std::cout << "mypid: " << getpid() << std::endl;
+    std::cout << "mypid: " << getpid() << std::endl;
+    std::cout << "mypid: " << getpid() << std::endl;
+    std::cout << "mypid: " << getpid() << std::endl;
+    sleep(3);
+    //signal(2,SIG_DFL);
+    signal(2,SIG_IGN);
+
+    while(1)
+    {
+    }
+
+    // std::cout << "mypid: " << getpid() << std::endl;
+    // std::cout << "mypid: " << getpid() << std::endl;
+    // std::cout << "mypid: " << getpid() << std::endl;
+    // std::cout << "mypid: " << getpid() << std::endl;
+
+    // int a = 10;
+    // a /= 0;
+
+    // std::cout << "mypid: " << getpid() << std::endl;
+    // std::cout << "mypid: " << getpid() << std::endl;
+    // std::cout << "mypid: " << getpid() << std::endl;
+    // std::cout << "mypid: " << getpid() << std::endl;
+
+
+    return 0;
+}
