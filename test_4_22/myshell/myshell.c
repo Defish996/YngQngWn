@@ -14,7 +14,7 @@ char envval[1024];//环境变量存放
 char cwd[1024];//不能存在临时空间,要让它一直有效,若因为消失,环境变量会消失,所以要去全局
 const char* getUserName()
 {
-  const char* name = getenv("USER");
+  const char* name = getenv("USER");//从环境变量中找到k为USER的val
   if(name) return name;
   else return "none";
 }
@@ -47,7 +47,7 @@ void commandSplit(char* in, char* out[])
   int argc = 0;
   out[argc++] = strtok(in,SEP);
   while(out[argc++] = strtok(NULL,SEP));
-#ifdef Debug
+#ifdef Debug//debug版本,release下不存在这个
   for(int i = 0;out[i];i++)
   {
     printf("%d:%s\n",argc,out[i]);
