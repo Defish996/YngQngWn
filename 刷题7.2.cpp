@@ -40,3 +40,44 @@ public:
         return true;
     }
 };
+//leetcode 3115. 质数的最大距离 质数o(N) 模拟
+
+
+class Solution {
+public:
+    int m, n;
+    bool isPrime(int n) 
+    {  
+        if (n <= 1) return false;  
+        for (int i = 2; i <= sqrt(n); ++i) {  
+            if (n % i == 0) return false;  
+        }  
+        return true;  
+    }
+    int maximumPrimeDifference(vector<int>& nums) {
+        for(int i = 0; i < nums.size(); i++)
+        {
+            if(isPrime(nums[i]))
+            {
+                m = i;
+                break;
+            }
+        }
+        for(int i = nums.size() - 1; i >= 0; i--)
+        {
+            if(isPrime(nums[i]))
+            {
+                n = i;
+                break;
+            }   
+        }
+        if(m == 0 && n == 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return n - m;
+        }
+    }
+};
