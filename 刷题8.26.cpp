@@ -32,3 +32,24 @@ public:
         return dfs(id);
     }
 };
+
+// leetcode 3146. 两个字符串的排列差 hash应用
+
+
+class Solution {
+public:
+    int findPermutationDifference(string s, string t) {
+        unordered_map<char, int> map;
+        int n = s.size();
+        for(int i = 0; i < n; i++)
+        {
+            map[s[i]] = i;
+        }
+        int ans = 0;
+        for(int i = 0; i < n; i++)
+        {
+            ans += abs(map[t[i]]-i);
+        }
+        return ans;
+    }
+};
