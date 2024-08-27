@@ -75,4 +75,38 @@ public:
 };
 
 
+// leetcode LCR 083. 全排列
+
+class Solution {
+    vector<vector<int>> ret;// 存储结果
+    vector<int> path;// 记录经过叶子路径后的值
+    bool check[7];// 检查当前节点是否已经过遍历 
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        dfs(nums);
+        return ret;
+    }
+    void dfs(vector<int> &nums)
+    {
+        if(nums.size() == path.size())// 当到达当前节点后的大小与nums的大小一样时, 表明是一种满足条件的方式, 进行返回
+        {
+            ret.push_back(path);// 返回前存储当前的结果
+            return; 
+        }
+        for(int i = 0; i < nums.size(); i++)
+        {
+            if(check[i] == false)// 若当前的节点没有被使用, 则进行记录(判断是使用它的下标进行判断)
+            {
+                path.push_back(nums[i]);
+                check[i] = true;
+                dfs(nums);// 当前节点判断结束之后, 就进行下一轮的递归
+                // 下次函数调用时, 因为当前的值为false,所以不会进行存入, 循环到下个值进行dfs, 也就是会继续递归进入
+                path.pop_back();// 进行回溯时恢复现场
+                check[i] = false;
+            }
+        }
+
+    }
+};
+
  
