@@ -29,3 +29,32 @@ public:
         return true;
     }
 };
+
+// 全排列
+class Solution {
+    vector<vector<int>> ret;
+    vector<int> path;
+    bool check[7];
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        dfs(nums);
+        return ret;
+    }
+    void dfs(vector<int> &nums)
+    {
+        if(nums.size() == path.size())
+        {
+            ret.push_back(path);
+            return; 
+        }
+        for(int i = 0; i < nums.size(); i++)
+        {
+            if(check[i] == true) continue;
+            check[i] = true;
+            path.push_back(nums[i]);
+            dfs(nums);
+            path.pop_back();// 恢复现场
+            check[i] = false;
+        }
+    } 
+};
