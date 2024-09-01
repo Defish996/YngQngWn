@@ -76,3 +76,55 @@ public:
         return ret;
     }
 };
+
+//LCR 079. 子集 
+// 解法一:dfs到这个值之后可以选或者不选, 选了要记得恢复现场
+// 当i == nums.size(), 也就是叶子结点时, 收集结果
+
+class Solution {
+    vector<int> path;
+    vector<vector<int>> ret;
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        dfs(nums, 0);
+        return ret;
+    }
+    void dfs(vector<int> &nums, int i)
+    {
+        if(i == nums.size())
+        {
+            ret.push_back(path);
+            return;
+        }
+        // 不选
+        dfs(nums, i + 1);
+
+        // 选
+        path.push_back(nums[i]);
+        dfs(nums, i + 1);
+        path.pop_back();// 选完恢复现场
+    }
+};
+
+//解法二:依次按照1个元素, 2个元素,....n个元素的情况进行收集结果
+// 遍历的时候, 就可以按照这样的方式进行遍历, 然后结果就是每个节点的值
+class Solution {
+    vector<int> path;
+    vector<vector<int>> ret;
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        dfs(nums, 0);
+        return ret;
+    }
+    void dfs(vector<int> &nums, int pos)
+    {
+        ret.push_back(path);// 收集每个节点
+        for(int i = pos; i < nums.size(); i++)
+        {
+            path.push_back(nums[i]);
+            dfs(nums, i + 1);
+            path.pop_back();// 选完恢复现场
+        }
+
+    }
+};
