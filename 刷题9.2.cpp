@@ -23,3 +23,37 @@ public:
     }
 };
 
+// 全排列II 
+// 解法一: 未剪枝 选择在添加时再次进行find看是否存在, 若存在就不添加, 这样增加了时间复杂度
+class Solution {
+    vector<vector<int>> ret;
+    vector<int> path;
+    bool check[9];
+public:
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        dfs(nums);
+        return ret;
+    }
+    void dfs(vector<int> &nums)
+    {
+        // 未剪枝 选择在添加时再次进行find看是否存在, 若存在就不添加, 这样增加了时间复杂度
+        if(path.size() == nums.size() && find(ret.begin(), ret.end(), path) == ret.end())
+        {
+            ret.push_back(path);
+            return;
+        }
+        for(int i = 0; i < nums.size(); i++)
+        {
+            if(check[i] == false)
+            {
+                path.push_back(nums[i]);
+                check[i] = true;
+                dfs(nums);
+                path.pop_back();
+                check[i] = false;
+            }
+        }
+    }
+};
+
+
