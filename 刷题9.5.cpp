@@ -20,3 +20,24 @@ public:
         return st;
     }
 };
+
+// 509. 斐波那契数 dp
+
+
+class Solution {
+public:
+    int fib(int n) {
+        if(n < 2)
+        {
+            return n;
+        }
+        int l = 0, r = 1, x = 1;
+        for(int i = 2; i < n; i++)
+        {
+            l = r;
+            r = x;
+            x = r + l;
+        }
+        return x;
+    }
+};
