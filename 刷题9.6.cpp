@@ -15,3 +15,22 @@ public:
         return ans;
     }
 };
+
+// 392. 判断子序列 一次遍历O(N)
+
+
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        if(s.empty()) return true;
+        int i = 0;
+        for(auto &c : t)
+        {
+            if(s[i] == c && ++i == s.size())
+            {
+                return true;
+            }     
+        }
+        return false;
+    }
+};
