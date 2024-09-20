@@ -23,3 +23,30 @@ public:
         return slow == 1;
     }
 };
+
+
+// 盛水最多的容器双指针定义两边, 哪边小哪边向内移动
+
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int ans = 0;
+        int left = 0, right = height.size() - 1;
+        while(left < right)// 双指针定义两边, 哪边小哪边向内移动
+        {
+            int LVal = height[left], RVal = height[right];
+            int hight = min(LVal, RVal);
+            int length = right - left;
+            ans = max(ans, hight * length);
+            if(LVal <= RVal)
+            {
+                ++left;
+            } 
+            else
+            {
+                --right;
+            }
+        }
+        return ans;
+    }
+};
