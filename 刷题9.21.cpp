@@ -25,3 +25,30 @@ public:
         return ans;
     }
 };
+
+// 和为s的两个数字
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> ans(2);
+        int n = nums.size();
+        int left = 0, right = n - 1;
+        while(left < right)
+        {
+            if(nums[left] + nums[right] < target)
+            {
+                ++left;
+            }
+            else if(nums[left] + nums[right] > target)
+            {
+                --right;
+            }
+            else{
+                ans[0] = nums[left];
+                ans[1] = nums[right];
+                break;
+            }
+        }
+        return ans;
+    }
+};
