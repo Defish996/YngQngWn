@@ -1,34 +1,35 @@
-// 1658. 将 x 减到 0 的最小操作数 逆向思维应用
+// 904. 水果成篮 阅读理解+滑动窗口+hash
 
 
 class Solution {
 public:
-    int minOperations(vector<int>& nums, int x) {
-        int n = nums.size();
+    int totalFruit(vector<int>& fruits) {
+        int n = fruits.size();
         int left = 0, right = 0;
-        int ans = -1/*小细节, 当未来在判断循环出去之后, 若没有满足的结果, 则结果就是-1*/, sum = 0;
-        for(auto &e : nums) sum += e;
-        if(sum < x) return -1;// 防止[1, 1] 3这样的示例
-        int target = sum - x; 
-        sum = 0;
+        int hash[100001] = { 0 };
+        int kind = 0;// 记录水果的种类
+        int ans = 0;
         while(right < n)
         {
-            sum += nums[right];
-            while(sum > target)
-            {
-                sum -= nums[left++];
-            }
+            if(hash[fruits[right]] == 0) ++kind;// 首次进入肯定是新品种, 所以种类数++
+            hash[fruits[right]]++;
+            // if(hash.size() > 2)
+            // {
+            //     hash[fruits[left]]--;
+            // }
             // ans = max(ans, right - left + 1);
-            // 为什么不能这样写, 因为这样的操作导致忽略了题目反意的从左边开始, 找sum-x的区间最大的是几
-            // 也就是相等才能存值
-            // 当出窗口条件满足后, 并不意味着满足存值的结果, 我们的思路是为了得到答案, 所以最终应该是以结果为导向
-            // 存值和判断的出有关系但不是必然
-            if(sum == target)
+            // 为什么if不行, 同样传入的值在进行出窗口的时候, 虽然在hash中size只是种类统计, 但是不知道每个种类的具体分部, 所以还是一一减去较好, 所以还是使用while
+            while(kind > 2)
             {
-                ans = max(ans, right - left + 1);
+                hash[fruits[left]]--;
+                if(hash[fruits[left]] == 0) --kind;
+                left++;
+                // 同时减去这个值使它变为0之后, 还要把它
             }
+            ans = max(ans, right - left + 1);
             ++right;
         }
-        return ans == -1 ? ans : n - ans;// 按反向思路解题, 最后要将结果回正
+        return ans;
+
     }
 };
