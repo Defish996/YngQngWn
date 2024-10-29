@@ -27,3 +27,22 @@ public:
     return ans;
     }
 };
+
+// 方法2
+// 位运算
+vector<string> ans;
+int n = 0;
+cin >> n;
+int mask = (1 << n) - 1;// 构造全1的n位二进制数
+int x = 1 << n;// 表示2^n
+for (int i = 0; i < x; ++i)// 在0 ~~ x-1 中筛选
+{
+	if (((i >> 1) & i) == 0)// 当前值与右移一位的值进行与运算，如果结果为0，则说明当前值没有连续的1交替出现，符合要求
+	{
+		ans.push_back(bitset<18>(i ^ mask).to_string().substr(18 - n));//取反得到原先的二进制表示，再取子串
+	}
+}
+for (auto& x : ans)
+{
+	cout << x << endl;
+}
