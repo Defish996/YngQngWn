@@ -16,3 +16,30 @@ public:
         return ans;
     }
 };
+
+
+// 两数之和 找出有序数组的序号, 二分
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int left = 0, right = numbers.size() - 1;
+        while(left < right)
+        {
+            int num = numbers[left] + numbers[right];
+            if(num == target)
+            {
+                return {left + 1, right + 1};
+            }
+            else if(num < target)
+            {
+                ++left;
+            }
+            else
+            {
+                --right;
+            }
+        }
+        return {};
+    }
+};
