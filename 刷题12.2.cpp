@@ -43,3 +43,25 @@ public:
         return {};
     }
 };
+// 判断能否赢得游戏  数学策略
+
+
+class Solution {
+public:
+    bool canAliceWin(vector<int>& nums) {
+        int sum1 = 0;
+        int sum2 = 0;
+        for(auto &e : nums)
+        {
+            if(e <= 9)
+            {
+                sum1 += e;
+            }
+            else
+            {
+                sum2 += e;
+            }
+        }
+        return sum1 == sum2 ? 0 : 1;
+    }
+};
